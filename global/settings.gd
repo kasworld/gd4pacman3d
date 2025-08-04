@@ -16,7 +16,9 @@ var BounderyWalls = [
 	#["vline", 0, 1, FieldHeight-1],
 ]
 var StageWalls = [
-	[],
+	[
+		["fill", 1, FieldWidth-2, 1, FieldHeight-2],
+	],
 	[
 		["hline", FieldWidth/2-5, FieldWidth/2+5, FieldHeight/2],
 	],
