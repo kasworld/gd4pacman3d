@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://b7uiejt4rc6y2" path="res://wall.gd" id="1_xxgf6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxgf6"]
-resource_local_to_scene = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_y4f30"]
-resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_xxgf6")
 size = Vector3(0.9, 0.9, 0.9)
 

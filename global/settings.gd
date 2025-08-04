@@ -1,7 +1,7 @@
 extends Node
 
-const FieldWidth :int = 48
-const FieldHeight :int = 27
+const FieldWidth :int = 40
+const FieldHeight :int = 22
 const FieldSize := Vector2i(FieldWidth,FieldHeight)
 const WorldSize := Vector3(FieldWidth,FieldHeight,1.0)
 

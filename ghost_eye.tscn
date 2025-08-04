@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwegvq5rcdci6"]
+
+[ext_resource type="Script" uid="uid://cy7feadwaqgcp" path="res://ghost_eye.gd" id="1_htie7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htie7"]
+albedo_color = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ado7o"]
+material = SubResource("StandardMaterial3D_htie7")
+is_hemisphere = true
+
+[node name="GhostEye" type="Node3D"]
+script = ExtResource("1_htie7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("SphereMesh_ado7o")

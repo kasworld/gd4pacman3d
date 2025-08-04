@@ -1,13 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://1rg3o37r46jl"]
+[gd_scene load_steps=4 format=3 uid="uid://1rg3o37r46jl"]
 
 [ext_resource type="Script" uid="uid://c7ffb0367enfq" path="res://pacman.gd" id="1_hf5wl"]
-[ext_resource type="Texture2D" uid="uid://vso62ieebsar" path="res://image/plazma.png" id="2_hf5wl"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bb8f"]
-albedo_texture = ExtResource("2_hf5wl")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv0j0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_hwc4f"]
-material = SubResource("StandardMaterial3D_7bb8f")
+material = SubResource("StandardMaterial3D_xv0j0")
 
 [node name="Pacman" type="Node3D"]
 script = ExtResource("1_hf5wl")
