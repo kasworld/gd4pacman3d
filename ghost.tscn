@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://0fiaidab5c58"]
+
+[ext_resource type="Script" uid="uid://c0jd1w3b4528p" path="res://ghost.gd" id="1_v5pp4"]
+[ext_resource type="Texture2D" uid="uid://bddso1dff4ptn" path="res://image/helloworld.png" id="2_6attn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5pp4"]
+albedo_texture = ExtResource("2_6attn")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6attn"]
+material = SubResource("StandardMaterial3D_v5pp4")
+is_hemisphere = true
+
+[node name="Ghost" type="Node3D"]
+script = ExtResource("1_v5pp4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("SphereMesh_6attn")

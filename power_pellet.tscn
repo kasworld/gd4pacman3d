@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://beb5pivh0fn5t"]
+
+[ext_resource type="Script" uid="uid://dodfpp0m3dw8a" path="res://power_pellet.gd" id="1_03bq5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_03bq5"]
+radius = 0.125
+height = 0.5
+
+[node name="PowerPellet" type="Node3D"]
+script = ExtResource("1_03bq5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_03bq5")
