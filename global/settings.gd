@@ -9,10 +9,11 @@ func vector2i_to_vector3(from :Vector2i) -> Vector3:
 	return Vector3(from.x,from.y, 0.5)
 
 var BounderyWalls = [
-	["hline", 0, FieldWidth-2, 0],
-	["vline", FieldWidth-1, 0, FieldHeight-2],
-	["hline", 1, FieldWidth-1, FieldHeight-1],
-	["vline", 0, 1, FieldHeight-1],
+	["rect", 0, FieldWidth-1, 0, FieldHeight-1],
+	#["hline", 0, FieldWidth-2, 0],
+	#["vline", FieldWidth-1, 0, FieldHeight-2],
+	#["hline", 1, FieldWidth-1, FieldHeight-1],
+	#["vline", 0, 1, FieldHeight-1],
 ]
 var StageWalls = [
 	[],
