@@ -81,9 +81,14 @@ func _on_button_right_pressed() -> void:
 	pacman.set_linear_velocity(Vector3(1,0,0)*10)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		var fn = key2fn.get(event.keycode)
-		if fn != null:
-			fn.call()
+	if event is InputEventKey:
+		if event.pressed:
+			var fn = key2fn.get(event.keycode)
+			if fn != null:
+				fn.call()
+		elif event.is_released():
+			var fn = key2fn.get(event.keycode)
+			if fn != null:
+				pacman.set_linear_velocity(Vector3(0,0,0))
 	elif event is InputEventMouseButton and event.is_pressed():
 		pass
