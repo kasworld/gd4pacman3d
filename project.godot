@@ -28,9 +28,22 @@ window/size/viewport_width=3840
 window/size/viewport_height=2160
 window/size/mode=3
 
+[layer_names]
+
+3d_physics/layer_1="Pacman"
+3d_physics/layer_2="Dot"
+3d_physics/layer_3="PowerPellet"
+3d_physics/layer_4="BonusFruit"
+3d_physics/layer_5="Wall"
+3d_physics/layer_6="Ghost"
+3d_physics/layer_7="GhostDoor"
+3d_physics/layer_8="GhostEye"
+
 [physics]
 
 2d/run_on_separate_thread=true
 3d/run_on_separate_thread=true
 3d/physics_engine="Jolt Physics"
+3d/default_gravity=0.0
+3d/default_gravity_vector=Vector3(0, 0, 0)
 common/physics_interpolation=true

@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq4cdyr38kqgy"]
+[gd_scene load_steps=6 format=3 uid="uid://bq4cdyr38kqgy"]
 
 [ext_resource type="Script" uid="uid://02b7j6i3bvxw" path="res://bonus_fruit.gd" id="1_7pi3x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7pi3x"]
+friction = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pi3x"]
 
@@ -9,8 +12,15 @@ material = SubResource("StandardMaterial3D_7pi3x")
 inner_radius = 0.2
 outer_radius = 0.5
 
-[node name="BonusFruit" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7pi3x"]
+
+[node name="BonusFruit" type="StaticBody3D"]
+collision_layer = 8
+physics_material_override = SubResource("PhysicsMaterial_7pi3x")
 script = ExtResource("1_7pi3x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("TorusMesh_7pi3x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7pi3x")

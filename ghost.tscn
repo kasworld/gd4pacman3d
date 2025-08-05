@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://0fiaidab5c58"]
+[gd_scene load_steps=5 format=3 uid="uid://0fiaidab5c58"]
 
 [ext_resource type="Script" uid="uid://c0jd1w3b4528p" path="res://ghost.gd" id="1_v5pp4"]
 
@@ -8,9 +8,17 @@
 material = SubResource("StandardMaterial3D_v5pp4")
 is_hemisphere = true
 
-[node name="Ghost" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5pp4"]
+
+[node name="Ghost" type="CharacterBody3D"]
+collision_layer = 32
+collision_mask = 17
+motion_mode = 1
 script = ExtResource("1_v5pp4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("SphereMesh_6attn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_v5pp4")
