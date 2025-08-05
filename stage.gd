@@ -2,6 +2,7 @@ extends Node3D
 class_name Stage
 
 var field :PlacedThings
+var pacman :Pacman
 func init() -> Stage:
 	field = PlacedThings.new(Settings.FieldSize)
 	place_things()
@@ -38,9 +39,9 @@ func place_things() -> void:
 	]
 	place_scene(ScriptDraw2D.exec(dot_draw), preload("res://dot.tscn"), Color.GOLDENROD)
 
-	pt = preload("res://pacman.tscn").instantiate().set_color(Color.YELLOW)
-	pt.position = Settings.vector2i_to_vector3(rand_pos2i())
-	add_child(pt)
+	pacman = preload("res://pacman.tscn").instantiate().set_color(Color.YELLOW)
+	pacman.position = Settings.vector2i_to_vector3(rand_pos2i())
+	add_child(pacman)
 	
 	for co in [Color.PINK, Color.BLUE, Color.RED, Color.GREEN]:
 		pt = preload("res://ghost.tscn").instantiate().set_color(co)
@@ -62,3 +63,26 @@ func place_scene(pos2i_list :Array, scene :Resource, co :Color) -> void:
 		var pos3d = Settings.vector2i_to_vector3(pos2i)
 		pt.position = pos3d
 		add_child(pt)
+
+var key2fn = {
+	KEY_UP:_on_button_up_pressed,
+	KEY_DOWN:_on_button_down_pressed,
+	KEY_LEFT:_on_button_left_pressed,
+	KEY_RIGHT:_on_button_right_pressed,
+}
+func _on_button_up_pressed() -> void:
+	pacman.apply_central_impulse(Vector3(0,1,0))
+func _on_button_down_pressed() -> void:
+	pacman.apply_central_impulse(Vector3(0,-1,0))
+func _on_button_left_pressed() -> void:
+	pacman.apply_central_impulse(Vector3(-1,0,0))
+func _on_button_right_pressed() -> void:
+	pacman.apply_central_impulse(Vector3(1,0,0))
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		var fn = key2fn.get(event.keycode)
+		if fn != null:
+			fn.call()
+	elif event is InputEventMouseButton and event.is_pressed():
+		pass
