@@ -1,4 +1,4 @@
-extends Node3D
+extends StaticBody3D
 class_name Dot
 
 func set_color(co :Color) -> Dot:

@@ -27,7 +27,6 @@ static func add_hline(x1 :int, x2 :int, y :int, dst :Array):
 		var t = x1
 		x1 = x2
 		x2 = t
-	var rtn := []
 	for x in range(x1,x2+1):
 		dst.append( Vector2i(x,y) )
 
@@ -37,7 +36,6 @@ static func add_vline(x :int, y1 :int, y2 :int, dst :Array):
 		var t = y1
 		y1 = y2
 		y2 = t
-	var rtn := []
 	for y in range(y1,y2+1):
 		dst.append( Vector2i(x,y) )
 

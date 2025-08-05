@@ -15,9 +15,12 @@ func place_things() -> void:
 	pt = preload("res://pacman.tscn").instantiate().set_color(Color.YELLOW)
 	pt.position = Vector3(1,4,0.5)
 	add_child(pt)
-	pt = preload("res://ghost.tscn").instantiate().set_color(Color.PINK)
-	pt.position = Vector3(2,5,0.5)
-	add_child(pt)
+	
+	for co in [Color.PINK, Color.BLUE, Color.RED, Color.GREEN]:
+		pt = preload("res://ghost.tscn").instantiate().set_color(co)
+		pt.position = Settings.WorldSize/2
+		add_child(pt)
+	
 	pt = preload("res://power_pellet.tscn").instantiate().set_color(Color.GOLD)
 	pt.position = Vector3(5,7,0.5)
 	add_child(pt)

@@ -1,4 +1,4 @@
-extends Node3D
+extends StaticBody3D
 class_name GhostDoor
 
 func set_color(co :Color) -> GhostDoor:

@@ -1,19 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://0fiaidab5c58"]
+[gd_scene load_steps=6 format=3 uid="uid://0fiaidab5c58"]
 
 [ext_resource type="Script" uid="uid://c0jd1w3b4528p" path="res://ghost.gd" id="1_v5pp4"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v5pp4"]
+friction = 0.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5pp4"]
+resource_local_to_scene = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_6attn"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_v5pp4")
 is_hemisphere = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5pp4"]
 
-[node name="Ghost" type="CharacterBody3D"]
+[node name="Ghost" type="RigidBody3D"]
 collision_layer = 32
 collision_mask = 17
-motion_mode = 1
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_v5pp4")
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 4
 script = ExtResource("1_v5pp4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
