@@ -13,3 +13,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			fc = Vector3(0,randfn(0,1),0)
 		apply_central_impulse(fc)
+
+func _on_body_entered(body: Node) -> void:
+	if body is Dot:
+		body.queue_free()
+	elif body is PowerPellet:
+		body.queue_free()
+	elif body is BonusFruit:
+		body.queue_free()

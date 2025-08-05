@@ -12,6 +12,7 @@ material = SubResource("StandardMaterial3D_swi4y")
 size = Vector3(0.2, 0.2, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_swi4y"]
+size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Dot" type="StaticBody3D"]
 collision_layer = 2

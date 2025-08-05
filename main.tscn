@@ -8,7 +8,7 @@
 default_font_size = 48
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
-albedo_color = Color(1, 1, 0.501961, 1)
+albedo_color = Color(0.500095, 0.500095, 0.500095, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
 material = SubResource("StandardMaterial3D_ig7tw")

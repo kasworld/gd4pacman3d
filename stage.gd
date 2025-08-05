@@ -8,28 +8,39 @@ func init() -> Stage:
 	return self
 	
 func place_things() -> void:
-	place_scene(ScriptDraw2D.exec(Settings.BounderyWalls), preload("res://wall.tscn"))
-	place_scene(ScriptDraw2D.exec(Settings.StageWalls[0]), preload("res://dot.tscn"))
+	place_scene(ScriptDraw2D.exec(Settings.BounderyWalls), preload("res://wall.tscn"), Color.GRAY)
+	place_scene(ScriptDraw2D.exec(Settings.StageWalls[2]), preload("res://wall.tscn"), Color.GRAY)
+	var dot_draw = 	[
+		["fill", 1, Settings.FieldWidth-2, 1, Settings.FieldHeight-2],
+	]
+	place_scene(ScriptDraw2D.exec(dot_draw), preload("res://dot.tscn"), Color.GOLDENROD)
 
 	var pt 
 	pt = preload("res://pacman.tscn").instantiate().set_color(Color.YELLOW)
-	pt.position = Vector3(1,4,0.5)
+	pt.position = rand_pos()
 	add_child(pt)
 	
 	for co in [Color.PINK, Color.BLUE, Color.RED, Color.GREEN]:
 		pt = preload("res://ghost.tscn").instantiate().set_color(co)
-		pt.position = Settings.WorldSize/2
+		pt.position = rand_pos()
 		add_child(pt)
-	
-	pt = preload("res://power_pellet.tscn").instantiate().set_color(Color.GOLD)
-	pt.position = Vector3(5,7,0.5)
-	add_child(pt)
+	for i in 4:
+		pt = preload("res://power_pellet.tscn").instantiate().set_color(Color.GOLD)
+		pt.position = rand_pos()
+		add_child(pt)
 	pt = preload("res://bonus_fruit.tscn").instantiate().set_color(Color.RED)
-	pt.position = Vector3(20,5,0.5)
+	pt.position = rand_pos()
 	add_child(pt)
 
-func place_scene(wall_list :Array, scene :Resource) -> void:
-	var co = Settings.LightColorList.pick_random()[0]
+func rand_pos() -> Vector3:
+	return Vector3(
+		randi_range(1, Settings.FieldWidth-2),
+		randi_range(1, Settings.FieldHeight-2),
+		0.5
+	)
+
+func place_scene(wall_list :Array, scene :Resource, co :Color) -> void:
+	#var co = Settings.LightColorList.pick_random()[0]
 	for pos in wall_list:
 		var pt = scene.instantiate().set_color(co)
 		field.set_at(pos, pt)

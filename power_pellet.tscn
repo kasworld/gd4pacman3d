@@ -12,7 +12,9 @@ material = SubResource("StandardMaterial3D_03bq5")
 radius = 0.125
 height = 0.5
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_03bq5"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_03bq5"]
+radius = 0.125
+height = 0.5
 
 [node name="PowerPellet" type="StaticBody3D"]
 collision_layer = 4
@@ -23,4 +25,4 @@ script = ExtResource("1_03bq5")
 mesh = SubResource("CapsuleMesh_03bq5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_03bq5")
+shape = SubResource("CapsuleShape3D_03bq5")

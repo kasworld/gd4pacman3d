@@ -8,4 +8,4 @@ func set_color(co :Color) -> BonusFruit:
 var auto_rotate :bool = true
 func _process(delta: float) -> void:
 	if auto_rotate:
-		$MeshInstance3D.rotate_z(delta)
+		rotate_z(delta)
