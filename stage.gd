@@ -71,13 +71,13 @@ var key2fn = {
 	KEY_RIGHT:_on_button_right_pressed,
 }
 func _on_button_up_pressed() -> void:
-	pacman.apply_central_impulse(Vector3(0,1,0))
+	pacman.set_linear_velocity(Vector3(0,1,0)*10)
 func _on_button_down_pressed() -> void:
-	pacman.apply_central_impulse(Vector3(0,-1,0))
+	pacman.set_linear_velocity(Vector3(0,-1,0)*10)
 func _on_button_left_pressed() -> void:
-	pacman.apply_central_impulse(Vector3(-1,0,0))
+	pacman.set_linear_velocity(Vector3(-1,0,0)*10)
 func _on_button_right_pressed() -> void:
-	pacman.apply_central_impulse(Vector3(1,0,0))
+	pacman.set_linear_velocity(Vector3(1,0,0)*10)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:

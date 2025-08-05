@@ -6,10 +6,6 @@ func set_color(co :Color) -> Ghost:
 	return self
 
 func _physics_process(delta: float) -> void:
-	if randi_range(0,10) == 0:
-		var fc :Vector3
-		if randi_range(0,1) == 0:
-			fc = Vector3(randfn(0,2),0,0)
-		else:
-			fc = Vector3(0,randfn(0,2),0)
-		apply_central_impulse(fc)
+	if randi_range(0,50) == 0:
+		var vt = [Vector3(0,1,0), Vector3(1,0,0),Vector3(0,-1,0),Vector3(-1,0,0)]
+		set_linear_velocity(vt.pick_random()*5)
