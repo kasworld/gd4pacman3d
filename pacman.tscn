@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://1rg3o37r46jl"]
+[gd_scene load_steps=6 format=3 uid="uid://1rg3o37r46jl"]
 
 [ext_resource type="Script" uid="uid://c7ffb0367enfq" path="res://pacman.gd" id="1_hf5wl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xv0j0"]
+friction = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv0j0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_hwc4f"]
 material = SubResource("StandardMaterial3D_xv0j0")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xv0j0"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_xv0j0"]
 
 [node name="Pacman" type="RigidBody3D"]
 collision_mask = 126
@@ -15,6 +18,7 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_xv0j0")
 continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 8
@@ -24,6 +28,6 @@ script = ExtResource("1_hf5wl")
 mesh = SubResource("SphereMesh_hwc4f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_xv0j0")
+shape = SubResource("SphereShape3D_xv0j0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

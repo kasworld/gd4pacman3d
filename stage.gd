@@ -9,7 +9,11 @@ func init() -> Stage:
 	
 func place_things() -> void:
 	place_scene(ScriptDraw2D.exec(Settings.BounderyWalls), preload("res://wall.tscn"), Color.GRAY)
-	place_scene(ScriptDraw2D.exec(Settings.StageWalls[2]), preload("res://wall.tscn"), Color.GRAY)
+	for y in range(0, Settings.FieldHeight-2, 2):
+		var wall_draw = [
+			["hline", 2, Settings.FieldWidth-3, y],
+		]
+		place_scene(ScriptDraw2D.exec(wall_draw), preload("res://wall.tscn"), Color.GRAY)
 	var dot_draw = 	[
 		["fill", 1, Settings.FieldWidth-2, 1, Settings.FieldHeight-2],
 	]

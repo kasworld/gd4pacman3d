@@ -7,12 +7,13 @@ friction = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swi4y"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_swi4y"]
+[sub_resource type="SphereMesh" id="SphereMesh_swi4y"]
 material = SubResource("StandardMaterial3D_swi4y")
-size = Vector3(0.2, 0.2, 0.2)
+radius = 0.1
+height = 0.2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_swi4y"]
-size = Vector3(0.2, 0.2, 0.2)
+[sub_resource type="SphereShape3D" id="SphereShape3D_syhbm"]
+radius = 0.1
 
 [node name="Dot" type="StaticBody3D"]
 collision_layer = 2
@@ -20,7 +21,7 @@ physics_material_override = SubResource("PhysicsMaterial_swi4y")
 script = ExtResource("1_swi4y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_swi4y")
+mesh = SubResource("SphereMesh_swi4y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_swi4y")
+shape = SubResource("SphereShape3D_syhbm")

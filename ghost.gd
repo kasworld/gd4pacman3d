@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	if randi_range(0,10) == 0:
 		var fc :Vector3
 		if randi_range(0,1) == 0:
-			fc = Vector3(randfn(0,1),0,0)
+			fc = Vector3(randfn(0,2),0,0)
 		else:
-			fc = Vector3(0,randfn(0,1),0)
+			fc = Vector3(0,randfn(0,2),0)
 		apply_central_impulse(fc)
